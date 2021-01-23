@@ -14,7 +14,7 @@ library(lmtest)
 library(car)
 
 #Loading data
-base <- read.csv2("C:/Users/Carolina/Desktop/modelotesis/data.csv")
+base <- read.csv2("./multiplelinearregression/data.csv")
 
 base[sapply(base, is.character)] <- 
   lapply(base[sapply(base, is.character)], as.numeric) 
@@ -24,7 +24,6 @@ base_m <- data.frame(base$occ_ratem, base$avg_edum, base$income_amm)
 names(base_m) = c ("Occupancy_rate", "Avg_educationlevel", "Avg_income")
 
 round(cor(base_m, method = "pearson"), 3)
-
 
 base_f <- data.frame(base$occ_ratef, base$avg_eduf, base$income_amf)
 names(base_f) = c ("Occupancy_rate", "Avg_educationlevel", "Avg_income")
@@ -36,7 +35,6 @@ ggpairs(base_m, lower = list(continuous = wrap("smooth", size = 2 )),
         diag = list(continuous = wrap("barDiag", colour = "black", fill ="#3399CC")), 
         axisLabels = "none") + labs(title = "Model 1") + 
         theme(plot.title = element_text(hjust = 0.5))
-
 
 ggpairs(base_f, lower = list(continuous = wrap("smooth", size = 2 )), 
         diag = list(continuous = wrap("barDiag", colour = "black", fill ="#3399CC")), 
@@ -52,12 +50,10 @@ plot(cusum_model_f, main = "Model 2")
 
 #Multiple linear regression
  #Male Model
-
 model_m <- lm(occ_ratem ~ avg_edum + income_amm, data = base)
 summary(model_m)
 
  #Female Model
-
 model_f <- lm(occ_ratef ~ avg_eduf + income_amf, data = base)
 summary(model_f)
 
@@ -69,7 +65,6 @@ confint(lm(occ_ratef ~ avg_eduf + income_amf, data = base))
 
 #Linearity
  #Male Model
-
 linea_incomm <- ggplot(data = base_m, aes(x = Avg_income, y = model_m$residuals)) +
   geom_point(aes(colour = model_m$residuals)) +
   scale_color_gradient2(low = "blue3", mid = "grey", high = "red") +
@@ -93,7 +88,6 @@ linea_edum <- ggplot(data = base_m, aes(x = Avg_educationlevel, y = model_m$resi
 grid.arrange(linea_edum, linea_incomm)
 
 #Female Model
-
 linea_incomf <- ggplot(data = base_f, aes(x = Avg_income, y = model_f$residuals)) +
   geom_point(aes(colour = model_f$residuals)) +
   scale_color_gradient2(low = "blue3", mid = "grey", high = "red") +
@@ -137,7 +131,6 @@ qqline(model_m$residuals, col = "red3")
 qqnorm(model_f$residuals, main = "Model 2 Distribution")
 qqline(model_f$residuals, col = "red3")
 
-
 shapiro.test(model_m$residuals)
 shapiro.test(model_f$residuals)
 
@@ -167,7 +160,6 @@ vif(model_f)
 
 #Autocorrelation
 ##1st order
-
 dwt(model_m, alternative = "two.sided")
 dwt(model_f, alternative = "two.sided")
 
