@@ -93,7 +93,7 @@ Para finales de 2008 también hubo una variación en el máximo nivel educativo 
 Para el modelo femenino la distribución de la relación entre las variables es lineal, aunque es posible identificar dos observaciones inusuales al final del periodo de estudio, estás corresponden al aumento progresivo en el nivel educativo con su posible repercusión en el nivel de ingresos.
 
 <p align="center">
-  <img src="Plots/linearity2png" />
+  <img src="Plots/linearity2.png" />
 </p>
 
 #### 4.2 Normalidad
