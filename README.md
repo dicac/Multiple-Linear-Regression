@@ -82,8 +82,6 @@ Este valor corresponde al tercer periodo del año 2008.
   <img src="Plots/outlier.png" />
 </p>
 
-![](Plots/outlier.png)
-
 Al abstraer la información de los residuales del predictor avg_edum se observa que, si bien existe un dato atípico, este no genera repercusión aparente en el resto de indicadores. Al analizar los datos para el año 2008 se determinan dos posibles hipótesis para esta variación. 
 
 En términos macroeconómicos la economía colombiana sufrió una caída en la tasa del crecimiento del PIB relacionada a la crisis financiera mundial, la cual fue de más de tres puntos porcentuales con respecto a 2007; se determina que para el año 2008 hubo una variación negativa de 2,2 respecto al nivel educativo alcanzado para básica primaria, lo anterior puede explicar la afectación negativa en la disposición del gasto de los hogares y la promoción de la deserción escolar especialmente en los sectores más empobrecidos. 
