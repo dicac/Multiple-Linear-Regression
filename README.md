@@ -20,17 +20,24 @@ El conjunto de datos contiene 287 observaciones y 7 variables, a partir de los c
 #### 2.1 Correlación, dispersión y normalidad
 Los dos modelos se realizarán de forma simultánea, no obstante, para fines prácticos el modelo 1 contendrá los datos del modelo masculino y el modelo 2 los datos del modelo femenino. Se usa el método del test de Pearson para comprobar la correlación de las variables y también se utiliza un método de análisis visual.
 
-![](Plots/correlation1.png)
+<p align="center">
+  <img src="Plots/correlation1.png" />
+</p>
 
 Del análisis preliminar del modelo 1, se puede extraer que las variables dependientes tienen una buena relación lineal con la tasa de ocupación: nivel educativo (r = 0.61), ingreso (r = 0.79). También se puede observar una buena dispersión de las variables y una distribución normal con la posible presencia de valores atípicos.
 
-![](Plots/correlation2.png)
+<p align="center">
+  <img src="Plots/correlation2.png" />
+</p>
 
 Del análisis preliminar para el modelo 2, es posible determinar que las variables dependientes tienen una buena relación lineal respecto a la tasa de ocupación: nivel educativo (r = 0.75), ingreso (r = 0.83). La dispersión es adecuada y las variables se distribuyen de forma normal.
 
 #### 2.2	Cambio Estructural
 Con el fin de imitar la concurrencia de errores predictivos. Se comprueba la no presencia de cambio estructural, según el test Cusum.
-![](Plots/cusum.png)
+
+<p align="center">
+  <img src="Plots/cusum.png" />
+</p>
 
 #### 3.	Modelos de Regresión Lineal Múltiple
 
@@ -65,10 +72,15 @@ Es posible determinar con estos intervalos que, con una confianza del 95%, la in
 #### 4.1 Linealidad
 Se calcula la relación lineal entre los predictores numéricos y los residuos del modelo. En el caso masculino los residuos se distribuyen aleatoriamente en torno a cero con una variabilidad constante, pero se percibe la posible existencia de un valor atípico en la variable educación. Se realiza una nueva gráfica que incluya la variable “periodicidad” para determinar en qué espacio temporal se ubica el valor atípico y analizarlo.
 
-
-![](Plots/linearity1.png)
+<p align="center">
+  <img src="Plots/linearity1.png" />
+</p>
 
 Este valor corresponde al tercer periodo del año 2008.
+
+<p align="center">
+  <img src="Plots/outlier.png" />
+</p>
 
 ![](Plots/outlier.png)
 
@@ -82,27 +94,37 @@ Para finales de 2008 también hubo una variación en el máximo nivel educativo 
 
 Para el modelo femenino la distribución de la relación entre las variables es lineal, aunque es posible identificar dos observaciones inusuales al final del periodo de estudio, estás corresponden al aumento progresivo en el nivel educativo con su posible repercusión en el nivel de ingresos.
 
-
+<p align="center">
+  <img src="Plots/linearity2png" />
+</p>
 ![](Plots/linearity2.png)
 
 #### 4.2 Normalidad
 En ambos casos, las variables se distribuyen de forma normal, esto se corrobora a través de medios gráficos y según la hipótesis nula del test Shapiro-Wilk. 
 
-![](Plots/normality.png)
+<p align="center">
+  <img src="Plots/normality.png" />
+</p>
 
 #### 4.3 Homocedasticidad
 Esta característica que implica que la varianza de los errores es constante a lo largo del tiempo, entre más pequeña y constante dará como resultado un modelo más fiable. La distribución de los errores parece encontrarse sin perturbaciones en ambos modelos lo que se confirma con la prueba Breusch-Pagan pue se observa que se observa que el valor P es mayor que el nivel de significancia usual de 5%, por lo tanto, hay evidencias para decir que se cumple la homocedasticidad de los ei.
 
-![](Plots/homoscedasticity.png)
+<p align="center">
+  <img src="Plots/homoscedasticity.png" />
+</p>
 
 #### 4.4 No Multicolinealidad
 Se verifica la presencia de multicolinealidad que es un problema que sucede cuando las variables independientes están muy correlacionadas entre sí. Aunque es un valor arbitrario para este estudio se considerará como inusual el rango de 5 a 10 que es comúnmente aceptado. Se usa el método estadístico factor de inflación de la varianza (VIF, por sus siglas en inglés) que cuantifica este fenómeno en una regresión normal de mínimos cuadrados. Para los datos del modelo 1, es posible observar que los VIF son pequeños y, por lo tanto, concluir que no existe un problema de multicolinealidad.
 
-![](Plots/multi1.png)
+<p align="center">
+  <img src="Plots/multi1.png" />
+</p>
 
 En el segundo modelo los valores del VIF son mayores a 10 lo que podría indicar un problema de colinealidad, esto se debe tener en cuenta en el momento de exponer las conclusiones del mismo.
 
-![](Plots/multi2.png)
+<p align="center">
+  <img src="Plots/multi2.png" />
+</p>
 
 #### 4.5 No Autocorrelación
 Dado que se trabaja con una medición temporal es importante que las observaciones sean independientes unas de las otras, para tal efecto se realiza el test de autocorrelación de Durbin-Watson. En el modelo masculino, con un p-value = 0.068, mayor de 0.05, no podemos rechazar la hipótesis nula. Por lo tanto, suponemos incorrelación para los residuos estudentizados del modelo ajustado. No hay evidencia de autocorrelación.
