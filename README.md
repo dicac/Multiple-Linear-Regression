@@ -95,7 +95,6 @@ Para el modelo femenino la distribución de la relación entre las variables es 
 <p align="center">
   <img src="Plots/linearity2png" />
 </p>
-![](Plots/linearity2.png)
 
 #### 4.2 Normalidad
 En ambos casos, las variables se distribuyen de forma normal, esto se corrobora a través de medios gráficos y según la hipótesis nula del test Shapiro-Wilk. 
