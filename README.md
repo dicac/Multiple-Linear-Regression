@@ -21,13 +21,13 @@ El conjunto de datos contiene 287 observaciones y 7 variables, a partir de los c
 Los dos modelos se realizarán de forma simultánea, no obstante, para fines prácticos el modelo 1 contendrá los datos del modelo masculino y el modelo 2 los datos del modelo femenino. Se usa el método del test de Pearson para comprobar la correlación de las variables y también se utiliza un método de análisis visual.
 
 <p align="center">
-  <img src="Plots/correlation1.png" />
+  <img src="Plots/correlation_1.png" />
 </p>
 
 Del análisis preliminar del modelo 1, se puede extraer que las variables dependientes tienen una buena relación lineal con la tasa de ocupación: nivel educativo (r = 0.61), ingreso (r = 0.79). También se puede observar una buena dispersión de las variables y una distribución normal con la posible presencia de valores atípicos.
 
 <p align="center">
-  <img src="Plots/correlation2.png" />
+  <img src="Plots/correlation_2.png" />
 </p>
 
 Del análisis preliminar para el modelo 2, es posible determinar que las variables dependientes tienen una buena relación lineal respecto a la tasa de ocupación: nivel educativo (r = 0.75), ingreso (r = 0.83). La dispersión es adecuada y las variables se distribuyen de forma normal.
@@ -36,7 +36,7 @@ Del análisis preliminar para el modelo 2, es posible determinar que las variabl
 Con el fin de imitar la concurrencia de errores predictivos. Se comprueba la no presencia de cambio estructural, según el test Cusum.
 
 <p align="center">
-  <img src="Plots/cusum.png" />
+  <img src="Plots/cusum_1.png" />
 </p>
 
 #### 3.	Modelos de Regresión Lineal Múltiple
