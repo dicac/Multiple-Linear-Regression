@@ -31,15 +31,17 @@ names(base_f) = c ("Occupancy_rate", "Avg_educationlevel", "Avg_income")
 round(cor(base_f, method = "pearson"), 3)
 
 #Correlation and scatter plot
-ggpairs(base_m, lower = list(continuous = wrap("smooth", size = 2 )), 
-        diag = list(continuous = wrap("barDiag", colour = "black", fill ="#3399CC")), 
+ggpairs(base_m, lower = list(continuous = wrap("smooth", size = 1.5, colour = "gray20")), 
+        diag = list(continuous = wrap("densityDiag", colour = "steelblue", fill ="steelblue")), 
         axisLabels = "none") + labs(title = "Model 1") + 
-        theme(plot.title = element_text(hjust = 0.5))
+        theme(plot.title = element_text(hjust = 0.5), panel.grid.major = element_blank(),
+        strip.background = element_blank(), strip.text = element_text(size = 9.5, family = "Segoe UI"))
 
-ggpairs(base_f, lower = list(continuous = wrap("smooth", size = 2 )), 
-        diag = list(continuous = wrap("barDiag", colour = "black", fill ="#3399CC")), 
+ggpairs(base_f, lower = list(continuous = wrap("smooth", size = 1.5, colour = "gray20")), 
+        diag = list(continuous = wrap("barDiag", colour = "violet", fill ="violet")), 
         axisLabels = "none")  + labs(title = "Model 2") + 
-        theme(plot.title = element_text(hjust = 0.5))
+        theme(plot.title = element_text(hjust = 0.5), panel.grid.major = element_blank(),
+        strip.background = element_blank(), strip.text = element_text(size = 9.5, family = "Segoe UI"))
 
 #Structural change
 cusum_model_m <- efp(occ_ratem ~ avg_edum + income_amm, data = base)
@@ -137,17 +139,17 @@ shapiro.test(model_f$residuals)
 #Homoscedasticity
 homosc_m <- ggplot(base, aes(model_m$fitted.values, model_m$residuals)) +
   geom_point() + 
-  geom_smooth(color = "firebrick", se = FALSE) +
+  geom_smooth(colour = "steelblue", se = FALSE) +
   geom_hline(yintercept = 0) +
   labs( x = "Fitted values", y = "Residuals", title = "Male Model") +
-  theme_bw()
+  theme_classic()
 
 homosc_f <-ggplot(base, aes(model_f$fitted.values, model_f$residuals)) +
   geom_point() +
-  geom_smooth(color = "firebrick", se = FALSE) +
+  geom_smooth(colour = "violet", se = FALSE) +
   geom_hline(yintercept = 0) +
   labs( x = "Fitted values", y = "Residuals", title = "Female Model") +
-  theme_bw()
+  theme_classic()
 
 grid.arrange(homosc_m, homosc_f)
 
