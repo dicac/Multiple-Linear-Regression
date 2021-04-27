@@ -52,10 +52,18 @@ Con respecto al nivel de significancia de las variables independientes, para la 
 #### 3.1.2. Intervalos de Confianza
 Es posible determinar con estos intervalos que, con una confianza del 95%, la intersección se encuentra entre 36.63 y 64.48. Una vez más se encuentra que es muy poco probable que el verdadero valor sea 0. Se confirma el nivel de significancia bajo de la variable ingreso.
 
-![](Plots/interval1.png)
+
+~~~
+                    2.5 %       97.5 %
+(Intercept)  3.663233e+01 6.448002e+01
+avg_edum    -1.097318e+00 2.210973e+00
+income_amm   7.553824e-06 1.704961e-05
+
+~~~
 
 #### 3.2. Modelo 2: Caso Femenino
 El modelo con todas las variables introducidas como predictores tiene un R2 alta (0.71) por lo que es capaz de explicar el 71% de la variabilidad de la tasa de ocupación. El p-value del modelo es significativo (5.493e-11) con lo que se puede descartar que el modelo este dado por azar, uno de los coeficientes parciales de regresión no es significativo, lo que es un indicativo de que podría no contribuir al modelo.
+
 
 ![](Plots/002.png)
 
@@ -65,7 +73,12 @@ Se infiere que mujeres con un nivel de ingreso más alto son 0.0000398 veces má
 #### 3.2.2. Intervalos de Confianza
 Es posible determinar con estos intervalos que, con una confianza del 95%, la intersección se encuentra entre 10.49 y 147.72. Los intervalos de confianza para la variable educación están entre -13.78 y 1.52. E igual que con el modelo 1 se verifica el nivel de significancia bajo de la variable ingreso. La distancia en la estimación ingreso del modelo 1 y 2 son inestables lo que se confirmaría con las pruebas de colinealidad.
 
-![](Plots/interval2.png)
+~~~
+                    2.5 %       97.5 %
+(Intercept)  1.049972e+01 1.477233e+02
+avg_eduf    -1.378281e+01 1.522711e+00
+income_amf   2.169120e-05 5.791078e-05
+~~~
 
 #### 4.	Verificación de Supuestos
 
@@ -107,7 +120,7 @@ En ambos casos, las variables se distribuyen de forma normal, esto se corrobora 
 Esta característica que implica que la varianza de los errores es constante a lo largo del tiempo, entre más pequeña y constante dará como resultado un modelo más fiable. La distribución de los errores parece encontrarse sin perturbaciones en ambos modelos lo que se confirma con la prueba Breusch-Pagan pue se observa que se observa que el valor P es mayor que el nivel de significancia usual de 5%, por lo tanto, hay evidencias para decir que se cumple la homocedasticidad de los ei.
 
 <p align="center">
-  <img src="Plots/homoscedasticity.png" />
+  <img src="Plots/homoscedasticity_1.png" />
 </p>
 
 #### 4.4 No Multicolinealidad
@@ -126,16 +139,30 @@ En el segundo modelo los valores del VIF son mayores a 10 lo que podría indicar
 #### 4.5 No Autocorrelación
 Dado que se trabaja con una medición temporal es importante que las observaciones sean independientes unas de las otras, para tal efecto se realiza el test de autocorrelación de Durbin-Watson. En el modelo masculino, con un p-value = 0.068, mayor de 0.05, no podemos rechazar la hipótesis nula. Por lo tanto, suponemos incorrelación para los residuos estudentizados del modelo ajustado. No hay evidencia de autocorrelación.
 
-![](Plots/autoc1.png)
-
-
+~~~
+ lag Autocorrelation D-W Statistic p-value
+   1       0.1891446      1.491677   0.054
+ Alternative hypothesis: rho != 0
+~~~
 Mientras que en el modelo femenino el p-value = 0 y el estadístico Durbin-Watson, permite observar que ɖ cae en zona de indecisión (1.17) por lo que no es posible afirmar la presencia de autocorrelación o descartar su existencia, esto puede indicar que no existe autocorrelación de primer orden, pero sí de segundo orden.
 
+~~~
+ lag Autocorrelation D-W Statistic p-value
+   1       0.2780475      1.178178   0.002
+ Alternative hypothesis: rho != 0
+ ~~~
 ![](Plots/autoc2.png)
 
 
-Para el modelo femenino se realiza el test para Breusch-Godfrey que permite comprobar que con α: 0.05 no existe autocorrelación de primer orden, sin embargo, si de segundo orden como lo presumido el estadístico Durbin- Watson.
+Para el modelo femenino se realiza el test para Breusch-Godfrey que permite comprobar que con α: 0.05 no existe autocorrelación de primer orden, sin embargo, sí de segundo orden acorde a lo presumido con el estadístico Durbin- Watson.
 
+ ~~~
+ 
+    Breusch-Godfrey test for serial correlation of order up to 2
+
+data:  model_f
+LM test = 13.148, df = 2, p-value = 0.001396
+~~~
 ![](Plots/autoc22.png)
 
 #### 5. Conclusiones
