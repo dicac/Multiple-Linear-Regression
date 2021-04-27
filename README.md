@@ -125,16 +125,19 @@ Esta característica que implica que la varianza de los errores es constante a l
 
 #### 4.4 No Multicolinealidad
 Se verifica la presencia de multicolinealidad que es un problema que sucede cuando las variables independientes están muy correlacionadas entre sí. Aunque es un valor arbitrario para este estudio se considerará como inusual el rango de 5 a 10 que es comúnmente aceptado. Se usa el método estadístico factor de inflación de la varianza (VIF, por sus siglas en inglés) que cuantifica este fenómeno en una regresión normal de mínimos cuadrados. Para los datos del modelo 1, es posible observar que los VIF son pequeños y, por lo tanto, concluir que no existe un problema de multicolinealidad.
+~~~
+avg_edum income_amm 
+  2.041067   2.041067 
+~~~
 
-<p align="center">
-  <img src="Plots/multi1.png" />
-</p>
 
 En el segundo modelo los valores del VIF son mayores a 10 lo que podría indicar un problema de colinealidad, esto se debe tener en cuenta en el momento de exponer las conclusiones del mismo.
 
-<p align="center">
-  <img src="Plots/multi2.png" />
-</p>
+~~~
+avg_eduf income_amf 
+  10.80347   10.80347
+~~~
+	
 
 #### 4.5 No Autocorrelación
 Dado que se trabaja con una medición temporal es importante que las observaciones sean independientes unas de las otras, para tal efecto se realiza el test de autocorrelación de Durbin-Watson. En el modelo masculino, con un p-value = 0.068, mayor de 0.05, no podemos rechazar la hipótesis nula. Por lo tanto, suponemos incorrelación para los residuos estudentizados del modelo ajustado. No hay evidencia de autocorrelación.
