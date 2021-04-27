@@ -125,8 +125,6 @@ base$studentized_residual <- rstudent(model_m)
     theme(plot.title = element_text(hjust = 0.5), legend.position = "none")
 
 #Normality 
-par(bg="grey98", mfcol=c(2, 1))
-
 qqnorm(model_m$residuals, main = "Model 1 Distribution")
 qqline(model_m$residuals, col = "red3")
 
