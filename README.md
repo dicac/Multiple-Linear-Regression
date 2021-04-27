@@ -151,7 +151,6 @@ Mientras que en el modelo femenino el p-value = 0 y el estadístico Durbin-Watso
    1       0.2780475      1.178178   0.002
  Alternative hypothesis: rho != 0
  ~~~
-![](Plots/autoc2.png)
 
 
 Para el modelo femenino se realiza el test para Breusch-Godfrey que permite comprobar que con α: 0.05 no existe autocorrelación de primer orden, sin embargo, sí de segundo orden acorde a lo presumido con el estadístico Durbin- Watson.
@@ -163,7 +162,7 @@ Para el modelo femenino se realiza el test para Breusch-Godfrey que permite comp
 data:  model_f
 LM test = 13.148, df = 2, p-value = 0.001396
 ~~~
-![](Plots/autoc22.png)
+
 
 #### 5. Conclusiones
 Aunque se buscaba dimensionar la incidencia del nivel de ingresos en relación a la participación laboral se pudo establecer que la variable ingreso no tiene una significancia importante para este estudio en ninguno de los modelos. El predictor educación influye de forma importante especialmente para el modelo femenino, puesto que no se constituye como la respuesta al aumento de la participación laboral, teniendo en realidad un comportamiento negativo (un nivel educativo más alto para una mujer disminuye sus posibilidades de acceder al mercado laboral en 6,13 veces). 
